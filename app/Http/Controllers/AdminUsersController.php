@@ -28,8 +28,6 @@ class AdminUsersController extends Controller
     public function create()
     {
 
-//        $roles = Role::pluck('name', 'id')->all();, compact('roles')
-
         return view('admin/users.create');
     }
 
@@ -101,16 +99,11 @@ class AdminUsersController extends Controller
     public function update(UsersRequest $request, $id)
     {
 
-        if(trim($request->password) == ''){
-            $input = $request->except('password');
-        }else{
-            $input = $request->all();
-            $input['password'] = bcrypt($request->password);
-        }
 
         $user = User::findOrFail($id);
 
         $input = $request->all();
+
 
         if($file = $request->file('photo_id')){
 
@@ -121,7 +114,7 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        $user->update($input);
+        Auth::user()->posts()->whereId($id)->first()->update($input);
 
         return redirect('/admin/users');
     }
@@ -135,6 +128,6 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
-        redirect('/admin/users');
+        return redirect('/admin/users');
     }
 }

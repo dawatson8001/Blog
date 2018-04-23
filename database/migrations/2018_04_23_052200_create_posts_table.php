@@ -14,7 +14,7 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
             $table->string('title');
             $table->text('content');

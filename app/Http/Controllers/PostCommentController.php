@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserPostsController extends Controller
+class PostCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class UserPostsController extends Controller
     public function index()
     {
 
-        $posts = Post::all();
+        $comments = Comment::all();
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**
@@ -28,7 +28,7 @@ class UserPostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        //
     }
 
     /**
@@ -39,11 +39,23 @@ class UserPostsController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
         $user = Auth::user();
 
-        $user->posts()->create($input);
-        return redirect('/admin/posts');
+        $data = [
+            'post_id' => $request->post_id,
+            'title' => $user->title,
+            'author' => $user->name,
+            'email' =>$user->email,
+            'content' => $user->content
+        ];
+
+        Comment::create($request->all());
+
+        $request->session()->flash('comment_message','Your message has been submitted');
+
+        return redirect()->back();
+
+
 
 
     }
@@ -56,7 +68,11 @@ class UserPostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $comment = $post->comments;
+
+        return view('admin.comments.show', compact('comments'));
     }
 
     /**
@@ -67,10 +83,7 @@ class UserPostsController extends Controller
      */
     public function edit($id)
     {
-
-        $post = Post::findOrFail($id);
-
-        return view('admin.posts.edit', compact('post'));
+        //
     }
 
     /**
@@ -82,11 +95,8 @@ class UserPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->all();
-
-        Auth::user()->posts()->whereId($id)->first()->update($input);
-
-        return redirect('/admin/posts');
+        Comment::findOrFail($id)->update($request->all());
+        return redirect('admin/comments');
     }
 
     /**
@@ -97,15 +107,9 @@ class UserPostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id)->delete();
+        Comment::findOrFail($id)->delete();
 
-        return redirect('/admin/posts');
-
+        return redirect()->back();
     }
 
-    public function post($id){
-
-        $post = Post::findOrFail($id);
-        return view('post', compact('post'));
-    }
 }

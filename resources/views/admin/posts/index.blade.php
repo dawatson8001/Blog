@@ -9,6 +9,7 @@
               <th>User ID</th>
               <th>Title</th>
               <th>Content</th>
+              <th>Visit</th>
               <th>Created</th>
               <th>Updated</th>
           </tr>
@@ -20,9 +21,10 @@
             @foreach($posts as $post)
           <tr>
               <td>{{$post->id}}</td>
-              <td><a href="{{route('posts.edit', $post->id)}}"></a>{{$post->user_id}}</td>
-              <td>{{$post->title}}</td>
-              <td>{{$post->content}}</td>
+              <td>{{$post->user_id}}</td>
+              <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
+              <td>{{str_limit($post->content, 20)}}</td>
+              <td><a href="{{route('home.post', $post->id)}}">View Post</a></td>
               <td>{{$post->created_at->diffForHumans()}}</td>
               <td>{{$post->updated_at->diffForHumans()}}</td>
           </tr>

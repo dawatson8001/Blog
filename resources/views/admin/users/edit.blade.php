@@ -23,10 +23,6 @@
         {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('password', 'Password') !!}
-        {!! Form::password('password',['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
         {!! Form::submit('Update User', ['class'=>'btn btn-primary col-sm-6']) !!}
     </div>
     {!! Form::close() !!}

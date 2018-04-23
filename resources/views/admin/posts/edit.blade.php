@@ -1,7 +1,3 @@
-@extends('layouts.admin')
-
-@section('content')
-
     @extends('layouts.admin')
 
 @section('content')
@@ -10,7 +6,7 @@
 
     <div class="row">
 
-        {!! Form::mode($post, ['method'=>'PATCH', 'action'=> ['UserPostsController@store', $post->id], 'files'=>true]) !!}
+        {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['UserPostsController@store', $post->id], 'files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('title', 'Title') !!}
             {!! Form::text('title', null, ['class'=>'form-control']) !!}
@@ -19,15 +15,20 @@
             {!! Form::label('content', 'Content') !!}
             {!! Form::textarea('content', null, ['class'=>'form-control', 'rows'=>3]) !!}
         </div>
-
+<div>
         <div class="form-group">
-            {!! Form::submit('Post', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Update', ['class'=>'btn btn-primary col-sm-6']) !!}
         </div>
+        {!! Form::close() !!}
+
+        {!! Form::open(['method'=>'DELETE', 'action'=> ['UserPostsController@destroy', $post->id]]) !!}
+        <div class="form-group">
+            {!! form::submit('delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
+        </div>
+</div>
         {!! Form::close() !!}
     </div>
     <div class="row">
         @include('includes.form_error')
     </div>
-@stop
-
 @stop
