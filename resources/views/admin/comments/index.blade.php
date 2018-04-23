@@ -1,11 +1,8 @@
 @extends('layouts.admin')
-
 @section('content')
-
 
 @if(count($comment) > 0)
     <h1>Comments</h1>
-
     <table class="table">
         <thead>
         <tr>
@@ -17,7 +14,6 @@
         </tr>
         </thead>
         <tbody>
-
         @if($comments)
 
             @foreach($comments as $comment)
@@ -29,20 +25,16 @@
                     <td>{{$comment->content}}</td>
                     <td>{{$comment->created_at->diffForHumans()}}</td>
                     <td><a href="{{route('home.post', $comment->post->id)}}">View Post</a></td>
-
                     <td>
                         {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comment->id]]) !!}
                         <div class="form-group">
                             {!! form::submit('Delete Comment', ['class'=>'btn btn-danger']) !!}
                         </div>
                         {!! Form::close() !!}
-
                     </td>
                 </tr>
             @endforeach
-
         @endif
-
         </tbody>
     </table>
     @else

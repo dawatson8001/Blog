@@ -10,53 +10,58 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'PostCommentController@post']);
-
-
-Route::get('/user', function(){
-
-    return view('/user.index');
-
-});
 Route::group(['middleware'=>'admin'], function(){
+
     Route::get('/admin', function(){
 
-        return view('/admin.index');
+        return view('admin.index');
 
     });
 
-    Route::get('/user', function(){
+    Route::resource('admin/users', 'AdminUsersController',['names'=>[
 
-        return view('/user.index');
+        'index'=>'admin.users.index',
+        'create'=>'admin.users.create',
+        'store'=>'admin.users.store',
+        'edit'=>'admin.users.edit'
 
-    });
+    ]]);
 
-Route::resource('/admin/users', 'AdminUsersController');
+    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'UserPostsController@post']);
 
-Route::resource('user/posts', 'UserPostsController');
+    Route::resource('admin/posts', 'UserPostsController',['names'=>[
 
-Route::resource('admin/posts', 'UserPostsController');
+        'index'=>'admin.posts.index',
+        'create'=>'admin.posts.create',
+        'store'=>'admin.posts.store',
+        'edit'=>'admin.posts.edit'
 
-Route::resource('admin/comments','PostCommentController');
+    ]]);
 
-Route::resource('admin/comment/replies','CommentRepliesController');
+
+
+    Route::resource('admin/comments', 'PostCommentController',['names'=>[
+
+
+        'index'=>'admin.comments.index',
+        'create'=>'admin.comments.create',
+        'store'=>'admin.comments.store',
+        'edit'=>'admin.comments.edit',
+        'show'=>'admin.comments.show'
+
+    ]]);
 
 });
 
-Route::group(['middleware'=>'auth'], function(){
 
 
-    Route::post('comment/reply', 'CommentRepliesController@createReply');
-
-
-});
 

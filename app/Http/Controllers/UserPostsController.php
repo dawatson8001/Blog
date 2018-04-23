@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -106,6 +107,8 @@ class UserPostsController extends Controller
     public function post($id){
 
         $post = Post::findOrFail($id);
-        return view('post', compact('post'));
+        $comments = $post->get();
+        return view('post', compact('post', 'comments'));
     }
+
 }

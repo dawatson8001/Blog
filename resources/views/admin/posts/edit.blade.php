@@ -6,7 +6,7 @@
 
     <div class="row">
 
-        {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['UserPostsController@store', $post->id], 'files'=>true]) !!}
+        {!! Form::model($post, [ 'method'=>'PATCH', 'action'=> 'UserPostsController@store', 'files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('title', 'Title') !!}
             {!! Form::text('title', null, ['class'=>'form-control']) !!}

@@ -1,23 +1,18 @@
-@extends('layouts.blog-post')
+@extends('layouts.admin')
 
 @section('content')
-
                 <h1>{{$post->title}}</h1>
-
                 <p class="lead">
                     by <a href="#">{{$post->user->name}}</a>
                 </p>
                 <hr>
-                <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at->diffForHumans()}}</p>
+                <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at}}</p>
                 <hr>
                 <!-- Post Content -->
                 <p class="lead">{{$post->content}}</p>
                 <hr>
 
-
-
-
-
+@if(Auth::check())
                 <!-- Blog Comments -->
                 <!-- Comments Form -->
                 <div class="well">
@@ -41,17 +36,6 @@
 
                 </div>
                 <hr>
-                @if(count($comments) > 0)
-
-                    @foreach($comments as $comment)
-                        <div class="comment">
-                            <h4>{{$comment->title}}</h4>
-                            <h5>{{$comment->author}}</h5>
-                            <h5>{{$comment->created_at->diffForHumans}}</h5>
-                            <p>{{$comment->content}}</p>
-                        </div>
-                        @endforeach
-
-                    @endif
+@endif
 
 @stop
