@@ -10,13 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
-Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', function () {
     return view('welcome', ['UserPostsController@show']);
 });
+Auth::routes();
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+
 
 
 Route::group(['middleware'=>'admin'], function(){
