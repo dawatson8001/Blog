@@ -77,19 +77,16 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                @foreach($posts as $post)
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+                    <div class="comment">
+                        <h4>{{$post->title}}</h4>
+                        <h5>{{$post->author}}</h5>
+                        <h5>{{$post->created_at}}</h5>
+                        <p>{{$post->content}}</p>
+                    </div>
+
+                @endforeach
         </div>
     </body>
 </html>

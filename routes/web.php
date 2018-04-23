@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['UserPostsController@show']);
 });
 
 
