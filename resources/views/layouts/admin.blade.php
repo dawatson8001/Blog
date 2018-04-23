@@ -28,10 +28,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
             <ul class="nav navbar-nav">
-                <td><a href="#">All Users</a></td>
-                <td><a href="#">Create User</a></td>
-                <td><a href="#">All Posts</a></td>
-                <td><a href="#">Create Post</a></td
+                <td><a href="{{route('users.index')}}">All Users</a></td>
+                <td><a href="{{route('users.create')}}">Create User</a></td>
+                <td><a href="{{route('posts.index')}}">All Posts</a></td>
+                <td><a href="{{route('posts.create')}}">Create Post</a></td>
             </ul>
     </div>
 </nav>

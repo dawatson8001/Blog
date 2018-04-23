@@ -1,8 +1,8 @@
-@extends('layout.app)
+@extends('layouts.app')
 
 @section('content')
 
-    <h1 class="text-center">Oos no page available</h1>
+    <h1 class="text-center">Oops no page available</h1>
 
 
     @stop
