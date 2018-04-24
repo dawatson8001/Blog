@@ -45,4 +45,6 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/libs.js')}}"></script>
 @endsection
