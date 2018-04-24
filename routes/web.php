@@ -22,7 +22,7 @@ Route::get('/register', function () {
 //Auth::routes();
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 //Route::get('/logout', 'Auth\LoginController@logout');

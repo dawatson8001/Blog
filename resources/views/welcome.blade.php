@@ -69,10 +69,10 @@
             {{--@if (Route::has('login'))--}}
                 <div class="top-right links">
                     {{--@auth--}}
-                        <a href="{{ route('admin.posts.index') }}">BLOG</a>
+                        <a href="{{ url('admin.posts.index') }}">BLOG</a>
                     {{--@else--}}
                         {{--<a href="{{ url('/login') }}">Login</a>--}}
-                        {{--<a href="{{ url('/register') }}">Register</a>--}}
+                        <a href="{{ route('/user.create') }}">Register</a>
                     {{--@endauth--}}
                 </div>
             {{--@endif--}}
