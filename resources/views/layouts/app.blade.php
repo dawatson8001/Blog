@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<script src="{{secure_asset('js/libs.js')}}"></script>
+<script src="{{asset('js/libs.js')}}"></script>
 </body>
 
 </html>
