@@ -29,11 +29,13 @@
 
             @foreach($post as $posts)
                 <!-- First Blog Post -->
-                <h2>{{$posts->title}}</a></h2>
+                <h2>{{$posts->title}}</h2>
                 <p>{{$posts->body}}</p>
                 <hr>
-    @endforeach
-
+            @endforeach
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

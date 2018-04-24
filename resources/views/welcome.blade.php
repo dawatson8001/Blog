@@ -71,8 +71,8 @@
                     @auth
                         <a href="{{ url('admin.posts.index') }}">BLOG</a>
                     @else
-                        <a href="{{ route('/login') }}">Login</a>
-                        <a href="{{ route('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
                     @endauth
                 </div>
             @endif

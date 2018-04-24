@@ -11,7 +11,6 @@
     <!-- Post Content -->
     <p class="lead">{{$post->body}}</p>
     <hr>
-
     @if(Auth::check())
         <!-- Blog Comments -->
         <!-- Comments Form -->
@@ -43,5 +42,5 @@
                     <p>{{$comment->body}}</p>
                 </div>
             @endforeach
-        @endif
+        @endif   @endif
 @stop
