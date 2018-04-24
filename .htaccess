@@ -1,17 +1,62 @@
-Options -indexes
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+#uploaded files
 
-  # Allow any files or directories that exist to be displayed directly
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*/)?files/$ index.php [L]
 
-  # Rewrite all other URLs to index.php/URL
-  RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond %{REQUEST_URI} !.*wp-content/plugins.*
+
+RewriteRule ^(.*/)?files/(.*) wp-content/blogs.php?file=$2 [L]
+
+
+
+# add a trailing slash to /wp-admin
+
+RewriteCond %{REQUEST_URI} ^.*/wp-admin$
+
+RewriteRule ^(.+)$ $1/ [R=301,L]
+
+
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+
+RewriteCond %{REQUEST_FILENAME} -d
+
+RewriteRule . - [L]
+
+RewriteRule  ^([_0-9a-zA-Z-]+/)?(wp-.*) $2 [L]
+
+RewriteRule  ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
+
+RewriteRule . index.php [L]
+
+
+
+<IfModule mod_security.c>
+
+<Files async-upload.php>
+
+SecFilterEngine Off
+
+SecFilterScanPOST Off
+
+</Files>
+
 </IfModule>
 
-<IfModule !mod_rewrite.c>
-  ErrorDocument 404 index.php
+
+
+# BEGIN WordPress
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . /index.php [L]
+
 </IfModule>
