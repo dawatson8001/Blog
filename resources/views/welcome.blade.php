@@ -4,15 +4,21 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Homepage</div>
 
-            {{--@foreach($post as $posts)--}}
-                {{--<!-- Blog Post -->--}}
-                    {{--<h2>{{$posts->title}}</h2>--}}
-                    {{--<p>{{$posts->body}}</p>--}}
-                    {{--<hr>--}}
-                {{--@endforeach--}}
+                    <div class="panel-body">
+                        @foreach($post as $posts)
+                        <!-- Blog Post -->
+                        <h2>{{$posts->title}}</h2>
+                        <p>{{$posts->body}}</p>
+                        <hr>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 @endsection
