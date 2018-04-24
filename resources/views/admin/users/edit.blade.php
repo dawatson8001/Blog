@@ -3,12 +3,8 @@
 @section('content')
 
     <h1>Edit Users</h1>
-
     <div class="col-sm">
-
-        <img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt=""
-             class="img-responsive img-rounded">
-
+        <img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
     </div>
     {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id],'files'=>true]) !!}
     <div class="form-group">

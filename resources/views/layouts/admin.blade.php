@@ -28,10 +28,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
             <ul class="nav navbar-nav">
-                <td><a href="{{route('admin.users.index')}}">All Users</a></td>
-                <td><a href="{{route('admin.users.create')}}">Create User</a></td>
-                <td><a href="{{route('admin.posts.index')}}">All Posts</a></td>
-                <td><a href="{{route('admin.posts.create')}}">Create Post</a></td>
+                @Auth
+                    <td><a href="{{route('admin.users.index')}}">All Users</a></td>
+                    <td><a href="{{route('admin.users.create')}}">Create User</a></td>
+                    <td><a href="{{route('admin.posts.index')}}">All Posts</a></td>
+                    <td><a href="{{route('admin.posts.create')}}">Create Post</a></td>
+                @else
+                    <a href="{{ url('/login') }}">Login</a>
+                    <a href="{{ url('/register') }}">Register</a>
             </ul>
     </div>
 </nav>
