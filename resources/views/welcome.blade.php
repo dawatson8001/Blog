@@ -9,16 +9,16 @@
                     <div class="panel-heading">Homepage</div>
 
                     <div class="panel-body">
-                        @foreach($post as $posts)
                         <!-- Blog Post -->
-                        <h2>{{$posts->title}}</h2>
-                        <p>{{$posts->body}}</p>
-                        <hr>
-                        @endforeach
+                        {{--@foreach($post as $posts)--}}
+                        {{--<h2>{{$posts->title}}</h2>--}}
+                        {{--<p>{{$posts->body}}</p>--}}
+                        {{--<hr>--}}
+                        {{--@endforeach--}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-@endsection
+@stop
