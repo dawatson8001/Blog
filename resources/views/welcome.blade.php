@@ -77,16 +77,6 @@
                 </div>
             @endif
 
-                @foreach($posts as $post)
-
-                    <div class="comment">
-                        <h4>{{$post->title}}</h4>
-                        <h5>{{$post->author}}</h5>
-                        <h5>{{$post->created_at}}</h5>
-                        <p>{{$post->content}}</p>
-                    </div>
-
-                @endforeach
         </div>
     </body>
 </html>

@@ -2,13 +2,15 @@
 
 @section('content')
 
+    <h1>Posts</h1>
+
     <table class="table">
         <thead>
           <tr>
               <th>ID</th>
-              <th>User ID</th>
+              <th>Owner</th>
               <th>Title</th>
-              <th>Content</th>
+              <th>Body</th>
               <th>Visit</th>
               <th>Created</th>
               <th>Updated</th>
@@ -21,10 +23,11 @@
             @foreach($posts as $post)
           <tr>
               <td>{{$post->id}}</td>
-              <td>{{$post->user_id}}</td>
-              <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a></td>
-              <td>{{str_limit($post->content, 20)}}</td>
-              <td><a href="{{route('admin.comments.show', $post->id)}}">View Post</a></td>
+              <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
+              <td>{{$post->title}}</td>
+              <td>{{str_limit($post->body, 20)}}</td>
+              <td><a href="{{route('home.post', $post->id)}}">View Post</a></td>
+              <td><a href="{{route('admin.comments.show', $post->id)}}">View Comments</a></td>
               <td>{{$post->created_at->diffForHumans()}}</td>
               <td>{{$post->updated_at->diffForHumans()}}</td>
           </tr>

@@ -6,10 +6,11 @@
 
     <div class="col-sm">
 
-        <img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
+        <img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt=""
+             class="img-responsive img-rounded">
 
     </div>
-    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@store', $user->id],'files'=>true]) !!}
+    {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id],'files'=>true]) !!}
     <div class="form-group">
         {!! Form::label('name', 'Name') !!}
         {!! Form::text('name', null, ['class'=>'form-control']) !!}
@@ -17,6 +18,10 @@
     <div class="form-group">
         {!! Form::label('email', 'Email') !!}
         {!! Form::email('email', null, ['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('is_active', 'Status:') !!}
+        {!! Form::select('is_active', array(1 => 'Active', 0=> 'Not Active'), null , ['class'=>'form-control'])!!}
     </div>
     <div class="form-group">
         {!! Form::label('photo_id', 'File') !!}

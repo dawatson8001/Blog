@@ -13,7 +13,7 @@ class PostsCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class PostsCreateRequest extends FormRequest
     {
         return [
             'title'=> 'required',
-            'content'=> 'required'
+            'body'=> 'required'
         ];
     }
 }
