@@ -1,0 +1,47 @@
+[
+{"type":"header","version":"4.8.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"blog"},
+{"type":"table","name":"comments","database":"blog","data":
+[
+{"id":"1","post_id":"2","author":"Mr Angry","email":"Grumpy@home.me","content":"More people dressing up and messing up the grass, back in my day zzzzzzzzzzzzzzzzz","created_at":"2018-04-24 00:00:00","updated_at":"2018-04-24 00:00:00","title":"Grumpy"},
+{"id":"2","post_id":"2","author":"Cheery ","email":"Happy@go.lucky","content":"OMG i can wait for another one, im going to eat as much candyfloss as i can find","created_at":"2018-04-24 00:00:00","updated_at":"2018-04-24 00:00:00","title":"Happy"}
+]
+}
+,{"type":"table","name":"migrations","database":"blog","data":
+[
+{"id":"1","migration":"2014_10_12_000000_create_users_table","batch":"1"},
+{"id":"2","migration":"2014_10_12_100000_create_password_resets_table","batch":"1"},
+{"id":"3","migration":"2018_04_22_231623_add_photo_id_to_users","batch":"1"},
+{"id":"4","migration":"2018_04_22_233134_create_photos_table","batch":"1"},
+{"id":"5","migration":"2018_04_23_052200_create_posts_table","batch":"1"},
+{"id":"6","migration":"2018_04_23_084729_create_post_comments_table","batch":"1"},
+{"id":"7","migration":"2018_04_23_084855_create_comments_table","batch":"1"}
+]
+}
+,{"type":"table","name":"password_resets","database":"blog","data":
+[
+
+]
+}
+,{"type":"table","name":"photos","database":"blog","data":
+[
+
+]
+}
+,{"type":"table","name":"posts","database":"blog","data":
+[
+{"id":"1","user_id":"1","title":"The Weather","content":"WOW we had some really warm weather last week and after such heavy snow....","created_at":"2018-04-23 00:00:00","updated_at":"2018-04-23 00:00:00"},
+{"id":"2","user_id":"1","title":"Fun Fair","content":"Have you seen the Fun Fair coming to town, its going to be EPIC!!!","created_at":"2018-04-23 00:00:00","updated_at":"2018-04-23 00:00:00"}
+]
+}
+,{"type":"table","name":"post_comments","database":"blog","data":
+[
+
+]
+}
+,{"type":"table","name":"users","database":"blog","data":
+[
+{"id":"1","name":"dave","email":"dave@dave.com","password":"$2y$10$CMqLG.RlTzPFs1tFjuU8JeQ\/qARaEwDMp.X\/GVQXC\/IQaGC6K0mkm","remember_token":null,"created_at":"2018-04-23 14:17:11","updated_at":"2018-04-23 14:17:11","photo_id":"1"}
+]
+}
+]
