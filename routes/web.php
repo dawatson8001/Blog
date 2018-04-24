@@ -11,16 +11,13 @@
 |
 */
 
-
-Route::get('/', function () {
-    return view('welcome', ['UserPostsController@show']);
-});
 Auth::routes();
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/logout', 'Auth\LoginController@logout');
-
-
-
 
 Route::group(['middleware'=>'admin'], function(){
 
@@ -39,9 +36,9 @@ Route::group(['middleware'=>'admin'], function(){
 
     ]]);
 
-    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'UserPostsController@post']);
+    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
-    Route::resource('admin/posts', 'UserPostsController',['names'=>[
+    Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
         'index'=>'admin.posts.index',
         'create'=>'admin.posts.create',

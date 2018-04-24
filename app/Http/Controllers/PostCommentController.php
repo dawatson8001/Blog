@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Comment;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 class PostCommentController extends Controller
@@ -44,13 +45,12 @@ class PostCommentController extends Controller
 
         $data = [
             'post_id' => $request->post_id,
-            'title' => $user->title,
             'author' => $user->name,
             'email' =>$user->email,
-            'content' => $user->content
+            'body' => $user->body
         ];
 
-        Comment::create($request->all());
+        Comment::create($data);
 
         $request->session()->flash('comment_message','Your message has been submitted');
 

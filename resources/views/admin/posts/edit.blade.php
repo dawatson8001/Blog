@@ -6,7 +6,7 @@
 
     <div class="row">
 
-        {!! Form::model($post, [ 'method'=>'PATCH', 'action'=> 'UserPostsController@store', 'files'=>true]) !!}
+        {!! Form::model($post, [ 'method'=>'PATCH', 'action'=> 'AdminPostsController', 'files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('title', 'Title') !!}
             {!! Form::text('title', null, ['class'=>'form-control']) !!}
@@ -21,7 +21,7 @@
         </div>
         {!! Form::close() !!}
 
-        {!! Form::open(['method'=>'DELETE', 'action'=> ['UserPostsController@destroy', $post->id]]) !!}
+        {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminPostsController', $post->id]]) !!}
         <div class="form-group">
             {!! form::submit('delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
         </div>

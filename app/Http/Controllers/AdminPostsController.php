@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CommentRepliesController extends Controller
+class AdminPostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,10 @@ class CommentRepliesController extends Controller
      */
     public function index()
     {
-        //
+
+        $posts = Post::all();
+
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -23,7 +28,7 @@ class CommentRepliesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -34,7 +39,13 @@ class CommentRepliesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $user = Auth::user();
+
+        $user->posts()->create($input);
+        return redirect('/admin/posts');
+
+
     }
 
     /**
@@ -43,9 +54,9 @@ class CommentRepliesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**
@@ -56,7 +67,10 @@ class CommentRepliesController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -68,7 +82,11 @@ class CommentRepliesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+
+        return redirect('/admin/posts');
     }
 
     /**
@@ -79,6 +97,17 @@ class CommentRepliesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id)->delete();
+
+        return redirect('/admin/posts');
+
     }
+
+    public function post($id){
+
+        $post = Post::findOrFail($id);
+        $comments = $post->comments()->whereIsActive(1)->get();
+        return view('post', compact('post', 'comments'));
+    }
+
 }
