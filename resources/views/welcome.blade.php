@@ -66,16 +66,16 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            {{--@if (Route::has('login'))--}}
+            @if (Route::has('login'))
                 <div class="top-right links">
-                    {{--@auth--}}
+                    @auth
                         <a href="{{ url('admin.posts.index') }}">BLOG</a>
-                    {{--@else--}}
-                        {{--<a href="{{ url('/login') }}">Login</a>--}}
-                        <a href="{{ route('/user.create') }}">Register</a>
-                    {{--@endauth--}}
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endauth
                 </div>
-            {{--@endif--}}
+            @endif
 
         </div>
 

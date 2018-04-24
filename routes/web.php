@@ -19,13 +19,13 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware'=>'admin'], function(){
 
