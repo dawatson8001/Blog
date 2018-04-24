@@ -28,15 +28,16 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <ul class="nav navbar-nav">
-            @Auth
+            @if(@Auth::guest())
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+            @else
                 <td><a href="{{route('/')}}">Home</a></td>
                 <td><a href="{{route('admin.users.index')}}">View Users</a></td>
                 <td><a href="{{route('admin.users.create')}}">Create User</a></td>
                 <td><a href="{{route('admin.posts.index')}}">View Posts</a></td>
                 <td><a href="{{route('admin.posts.create')}}">Create Post</a></td>
-            @else
-                <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
+            @endif
         </ul>
     </div>
 </nav>
