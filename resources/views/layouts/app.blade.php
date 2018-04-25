@@ -26,7 +26,7 @@
         <ul class="nav navbar-nav">
             @if(@Auth::guest())
                 <a href="{{ secure_url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
+                <a href="{{ secure_url('/register') }}">Register</a>
             @else
                 <td><a href="{{route('/')}}">Home</a></td>
                 <td><a href="{{route('admin.users.index')}}">View Users</a></td>
