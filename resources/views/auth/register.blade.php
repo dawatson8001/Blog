@@ -7,7 +7,7 @@
                 <div class="card">
                     <h2>Register</h2>
                     <div class="card-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ URL::signedRoute('register') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
