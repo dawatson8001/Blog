@@ -19,10 +19,11 @@
 //    return view('auth.register');
 //});
 
-Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware'=>'admin'], function(){
@@ -40,7 +41,7 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.users.edit'
     ]]);
 
-    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+//    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
     Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
         'index'=>'admin.posts.index',
