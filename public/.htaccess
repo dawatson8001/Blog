@@ -6,13 +6,11 @@
     RewriteEngine On
 
     # Redirect Trailing Slashes...
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+    RewriteRule ^(.*)/$ https://mrbloggy.herokapp.com/$1 [L,R=301]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://mrbloggy.herokuapp.com/$1 [R,L]
 </IfModule>
