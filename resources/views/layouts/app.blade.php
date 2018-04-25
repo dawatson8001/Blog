@@ -26,7 +26,7 @@
         <ul class="nav navbar-nav">
             @if(@Auth::guest())
                 <a href="{{ secure_url('/login') }}">Login</a>
-                <a href="{{ secure_url('/register') }}">Register</a>
+                <a href="{{ url('/register') }}">Register</a>
             @else
                 <td><a href="{{route('/')}}">Home</a></td>
                 <td><a href="{{route('admin.users.index')}}">View Users</a></td>
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+<script src="{{asset('js/libs/scripts.js')}}"></script>
 </body>
 
 </html>
