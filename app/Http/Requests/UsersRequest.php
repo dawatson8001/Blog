@@ -26,6 +26,7 @@ class UsersRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
+            'is_role' => 'required',
             'is_active' => 'required',
             'password' => 'required'
         ];

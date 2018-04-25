@@ -27,6 +27,7 @@ class UsersEditRequest extends FormRequest
 
             'name' => 'required',
             'email' => 'required',
+            'is_role' => 'required',
             'is_active' => 'required'
 
         ];

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersEditRequest;
+use App\Http\Requests\UsersRequest;
+use App\Photo;
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
-use App\Http\Requests\UsersRequest;
 
 class AdminUsersController extends Controller
 {
@@ -27,8 +30,8 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-
-        return view('admin/users.create');
+        $roles = Role::pluck('name','id')->all();
+        return view('admin/users.create', compact('roles'));
     }
 
     /**
@@ -82,9 +85,10 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+        $roles = Role::pluck('name','id')->all();
 
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
