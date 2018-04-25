@@ -4,7 +4,7 @@
 
     <h1>Edit Post</h1>
     <div class="row">
-        {!! Form::model($post, [ 'method'=>'PATCH', 'action'=> 'AdminPostsController@update', 'files'=>true]) !!}
+        {!! Form::model($post, [ 'method'=>'PATCH', 'action'=> ['AdminPostsController@update', $post->id], 'files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('title', 'Title') !!}
             {!! Form::text('title', null, ['class'=>'form-control']) !!}
@@ -18,7 +18,7 @@
                 {!! Form::submit('Update', ['class'=>'btn btn-primary col-sm-6']) !!}
             </div>
             {!! Form::close() !!}
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminPostsController', $post->id]]) !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminPostsController@destroy', $post->id]]) !!}
             <div class="form-group">
                 {!! form::submit('delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>

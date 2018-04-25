@@ -11,14 +11,6 @@
 |
 */
 
-//Route::get('/login', function () {
-//    return view('auth.login');
-//});
-//
-//Route::get('/register', function () {
-//    return view('auth.register');
-//});
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -42,11 +34,14 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.users.edit'
     ]]);
 
+    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+
     Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
         'index'=>'admin.posts.index',
         'create'=>'admin.posts.create',
         'store'=>'admin.posts.store',
+        'update'=>'admin.posts.update',
         'edit'=>'admin.posts.edit',
         'post'=>'admin.posts.post'
     ]]);

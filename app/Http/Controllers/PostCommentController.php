@@ -84,7 +84,10 @@ class PostCommentController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $comments = Comment::findOrFail($id);
+
+        return view('admin.comments.edit', compact('comments'));
     }
 
     /**

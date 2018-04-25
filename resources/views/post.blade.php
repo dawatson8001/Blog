@@ -14,13 +14,14 @@
     @if(Auth::check())
 
         <!-- Comments Form -->
-        <div class="well">
+
             <h4>Leave a Comment:</h4>
-            {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentController@store']) !!}
+        <div class="form-group">
+            {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentController@store', 'files'=>true]) !!}
             <input type="hidden" name="post_id" value="{{$post->id}}">
             <div class="form-group">
-                {!! Form::label('content', 'Content') !!}
-                {!! Form::textarea('content', null, ['class'=>'form-control', 'rows'=>3]) !!}
+                {!! Form::label('body', 'Body') !!}
+                {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>3]) !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Leave Comment', ['class'=>'btn btn-primary']) !!}
