@@ -36,7 +36,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} row">
+                            <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password"
                                        class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
@@ -67,8 +67,8 @@
                             </div>
                         </form>
                     </div>
-
+                </div>
+                </div>
             </div>
         </div>
-    </div>
 @endsection
