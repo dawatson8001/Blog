@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware'=>'admin'], function(){
 
@@ -41,13 +42,13 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.users.edit'
     ]]);
 
-//    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
     Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
         'index'=>'admin.posts.index',
         'create'=>'admin.posts.create',
         'store'=>'admin.posts.store',
-        'edit'=>'admin.posts.edit'
+        'edit'=>'admin.posts.edit',
+        'post'=>'admin.posts.post'
     ]]);
 
     Route::resource('admin/comments', 'PostCommentController',['names'=>[
@@ -59,10 +60,3 @@ Route::group(['middleware'=>'admin'], function(){
         'show'=>'admin.comments.show'
     ]]);
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
