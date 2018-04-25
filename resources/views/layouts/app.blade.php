@@ -51,11 +51,11 @@
     </div>
 </div>
 
-<script src="{{asset('js/app.js')}}"></script>
-<script src="{{asset('js/libs/metisMenu.js')}}"></script>
-<script src="{{asset('js/libs/jquery.js')}}"></script>
-<script src="{{asset('js/libs/scripts.js')}}"></script>
-<script src="{{asset('js/libs/sb-admin-2.js')}}"></script>
+<script src="{{secure_asset('js/app.js')}}"></script>
+<script src="{{secure_asset('js/libs/metisMenu.js')}}"></script>
+<script src="{{secure_asset('js/libs/jquery.js')}}"></script>
+<script src="{{secure_asset('js/libs/scripts.js')}}"></script>
+<script src="{{secure_asset('js/libs/sb-admin-2.js')}}"></script>
 </body>
 
 </html>
