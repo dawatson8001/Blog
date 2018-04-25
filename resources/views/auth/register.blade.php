@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h2>Register</h2> {{rou}}
+                    <h2>Register</h2>
                     <div class="card-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                             @csrf
