@@ -4,7 +4,7 @@
     <!-- Blog -->
     <h1>{{$post->title}}</h1>
     <p class="lead">
-        by <a href="#">{{$post->user->name}}</a>
+        by{{$post->user->name}}
     </p>
     <hr>
     <p><span class="glyphicon glyphicon-time"></span>{{$post->created_at}}</p>

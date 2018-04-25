@@ -56,7 +56,9 @@ class AdminPostsController extends Controller
      */
     public function show()
     {
+        $posts = Post::all();
 
+        return view('posts', compact('posts'));
     }
 
     /**

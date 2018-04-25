@@ -10,13 +10,13 @@
 
     <title>Welcome</title>
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/styles.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/sb-admin-2.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/metisMenu.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/blog-post.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/styles.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/metisMenu.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/blog-post.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/libs/font-awesome.css')}}" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -30,7 +30,7 @@
                 <a href="{{ secure_url('/login') }}">Login</a>
                 <a href="{{ secure_url('/register') }}">Register</a>
             @else
-                <td><a href="{{route('admin.posts.index')}}">Home</a></td>
+                <td><a href="{{route('home.posts')}}">Home</a></td>
                 <td><a href="{{route('admin.users.index')}}"> View Users</a></td>
                 <td><a href="{{route('admin.users.create')}}">Create User</a></td>
                 <td><a href="{{route('admin.posts.index')}}">View Posts</a></td>

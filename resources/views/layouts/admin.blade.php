@@ -27,7 +27,7 @@
 <!-- Navigation -->
 <nav class=" navbar-fixed" role="navigation">
             <ul class="nav navbar-nav">
-                    <li><a href="{{route('admin.posts.index')}}">Home</a></li>
+                    <li><a href="{{route('home.posts')}}">Home</a></li>
                     <li><a href="{{route('admin.users.index')}}">View Users</a></li>
                     <li><a href="{{route('admin.users.create')}}">Create User</a></li>
                     <li><a href="{{route('admin.posts.index')}}">View Posts</a></li>
