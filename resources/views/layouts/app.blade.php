@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<script src="{{asset('js/libs/scripts.js')}}"></script>
+<script src="{{asset('js/libs/app.js')}}"></script>
 </body>
 
 </html>
