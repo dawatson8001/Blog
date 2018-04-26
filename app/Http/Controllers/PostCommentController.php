@@ -47,7 +47,7 @@ class PostCommentController extends Controller
             'post_id' => $request->post_id,
             'author' => $user->name,
             'email' =>$user->email,
-            'body' => $user->body
+            'body' => $request->body
         ];
 
         Comment::create($data);

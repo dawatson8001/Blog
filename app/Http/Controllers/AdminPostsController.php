@@ -85,9 +85,8 @@ class AdminPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->all();
 
-        Auth::user()->posts()->whereId($id)->first()->update($input);
+        Comment::findOrFail($id)->update($request->all());
 
         return redirect('/admin/posts');
     }
