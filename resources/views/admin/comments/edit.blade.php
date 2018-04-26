@@ -2,31 +2,26 @@
 
 @section('content')
 
-        <h1>Comment</h1>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Author</th>
-                <th>Email</th>
-                <th>Body</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{$comments->id}}</td>
-                    <td>{{$comments->author}}</td>
-                    <td>{{$comments->email}}</td>
-                    <td>{{$comments->body}}</td>
-                    <td>
-                        {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comments->id]]) !!}
-                        <div class="form-group">
-                            {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
-                        </div>
-                        {!! Form::close() !!}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+    <h1>Edit Comment</h1>
+    <div class="row">
+        {!! Form::model($comment, [ 'method'=>'PATCH', 'action'=> ['PostCommentController@update', $comment->id], 'files'=>true]) !!}
+        <div class="form-group">
+            {!! Form::label('body', 'Body') !!}
+            {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>3]) !!}
+        </div>
+        <div>
+            <div class="form-group">
+                {!! Form::submit('Update', ['class'=>'btn btn-primary col-sm-6']) !!}
+            </div>
+            {!! Form::close() !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comment->id]]) !!}
+            <div class="form-group">
+                {!! form::submit('Delete Comment', ['class'=>'btn btn-danger col-sm-6']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
+    <div class="row">
+        @include('includes.form_error')
+    </div>
 @stop
