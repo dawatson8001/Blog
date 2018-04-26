@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as'=>'home.posts', 'uses'=>'AdminPostsController@show']);
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -36,6 +36,7 @@ Route::group(['middleware'=>'admin'], function(){
 
     Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
     Route::get('/posts', ['as'=>'home.posts', 'uses'=>'AdminPostsController@show']);
+
 
     Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
