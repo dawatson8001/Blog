@@ -7,7 +7,7 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Autho</th>
+                <th>Author</th>
                 <th>Email</th>
                 <th>Body</th>
             </tr>
