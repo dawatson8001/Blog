@@ -37,6 +37,7 @@
                 <td><a href="{{route('admin.users.create')}}">Create User</a></td>
                 <td><a href="{{route('admin.posts.index')}}">View Posts</a></td>
                 <td><a href="{{route('admin.posts.create')}}">Create Post</a></td>
+                <td><a href="{{route('admin.comments.index')}}">View Comments</a></td>
                 <li><a href="{{route('logout')}}">Logout</a></li>
             @endif
         </ul>

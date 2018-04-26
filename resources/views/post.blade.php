@@ -31,15 +31,15 @@
         <hr>
 
         <!-- Comment -->
+        <div class="media-body">
         @if(count($comments) > 0)
             @foreach($comments as $comment)
-                <div class="media-body">
                     <h4 class="media-heading">{{$comment->author}}
                         <small>{{$comment->created_at->diffForHumans()}}</small>
                     </h4>
                     <p>{{$comment->body}}</p>
-                </div>
             @endforeach
         @endif
+        </div>
     @endif
 @stop

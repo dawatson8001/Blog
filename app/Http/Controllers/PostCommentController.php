@@ -30,7 +30,7 @@ class PostCommentController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('admin.posts.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class PostCommentController extends Controller
 
         Comment::create($data);
 
-        return redirect('admin.posts.create');
+        return redirect()->back();
 
     }
 

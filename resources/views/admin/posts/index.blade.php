@@ -21,11 +21,12 @@
             @foreach($posts as $post)
           <tr>
               <td>{{$post->id}}</td>
-              <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
+              <td>{{$post->user->name}}</td>
               <td>{{$post->title}}</td>
               <td>{{str_limit($post->body, 20)}}</td>
               <td>{{$post->created_at->diffForHumans()}}</td>
               <td>{{$post->updated_at->diffForHumans()}}</td>
+              <td><a href="{{route('admin.posts.edit', $post->id)}}">Edit Post</a></td>
               <td><a href="{{route('home.post', $post->id)}}">View Post</a></td>
           </tr>
             @endforeach
