@@ -18,6 +18,8 @@
     <link href="{{secure_asset('css/libs/blog-post.css')}}" rel="stylesheet">
     <link href="{{secure_asset('css/libs/font-awesome.css')}}" rel="stylesheet">
 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
