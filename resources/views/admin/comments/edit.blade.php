@@ -4,7 +4,7 @@
 
     <h1>Edit Comment</h1>
     <div class="row">
-        {!! Form::model($comment, [ 'method'=>'PATCH', 'action'=> ['PostCommentController@update', $comment->id], 'files'=>true]) !!}
+        {!! Form::model($comments, [ 'method'=>'PATCH', 'action'=> ['PostCommentController@update', $comments->id], 'files'=>true]) !!}
         <div class="form-group">
             {!! Form::label('body', 'Body') !!}
             {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>3]) !!}
@@ -14,7 +14,7 @@
                 {!! Form::submit('Update', ['class'=>'btn btn-primary col-sm-6']) !!}
             </div>
             {!! Form::close() !!}
-            {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comment->id]]) !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comments->id]]) !!}
             <div class="form-group">
                 {!! form::submit('Delete Comment', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>
