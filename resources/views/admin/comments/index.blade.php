@@ -20,7 +20,7 @@
                     <td>{{$comment->author}}</td>
                     <td>{{$comment->email}}</td>
                     <td>{{$comment->body}}</td>
-                    <td><a href="{{route('admin.comments.edit', $comment->post_id)}}">Edit Comment</a></td>
+                    <td><a href="{{route('admin.comments.edit', $comment->id)}}">Edit Comment</a></td>
                     <td><a href="{{route('home.post', $comment->post_id)}}">View Post</a></td>
                 </tr>
             @endforeach
