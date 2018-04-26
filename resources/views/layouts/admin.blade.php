@@ -29,13 +29,17 @@
 <!-- Navigation -->
 <nav class=" navbar-fixed" role="navigation">
             <ul class="nav navbar-nav">
-                    <li><a href="{{route('home.posts')}}">Home</a></li>
-                    <li><a href="{{route('admin.users.index')}}">View Users</a></li>
-                    <li><a href="{{route('admin.users.create')}}">Create User</a></li>
-                    <li><a href="{{route('admin.posts.index')}}">View Posts</a></li>
-                    <li><a href="{{route('admin.posts.create')}}">Create Post</a></li>
-                    <li><a href="{{route('admin.comments.index')}}">View Comments</a></li>
+                @if(Auth::guest())
+                    <a href="{{secure_url('/login') }}">Login</a>
+                    <a href="{{secure_url('/register') }}">Register</a>
+                @else
+                    <td><a href="{{route('home.posts')}}">Home</a></td>
+                    <td><a href="{{route('admin.users.index')}}"> View Users</a></td>
+                    <td><a href="{{route('admin.users.create')}}">Create User</a></td>
+                    <td><a href="{{route('admin.posts.index')}}">View Posts</a></td>
+                    <td><a href="{{route('admin.posts.create')}}">Create Post</a></td>
                     <li><a href="{{route('logout')}}">Logout</a></li>
+                @endif
             </ul>
 </nav>
 
