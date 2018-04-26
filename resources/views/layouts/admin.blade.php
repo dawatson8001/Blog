@@ -33,6 +33,7 @@
                     <li><a href="{{route('admin.posts.index')}}">View Posts</a></li>
                     <li><a href="{{route('admin.posts.create')}}">Create Post</a></li>
                     <li><a href="{{route('admin.comments.index')}}">View Comments</a></li>
+                    <li><a href="{{route('logout')}}">Logout</a></li>
             </ul>
 </nav>
 
