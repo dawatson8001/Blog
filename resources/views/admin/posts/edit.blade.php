@@ -20,7 +20,7 @@
             {!! Form::close() !!}
             {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminPostsController@destroy', $post->id]]) !!}
             <div class="form-group">
-                {!! form::submit('delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
+                {!! form::submit('delete post', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>
         </div>
         {!! Form::close() !!}

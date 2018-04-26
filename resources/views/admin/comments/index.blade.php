@@ -20,7 +20,9 @@
                     <td>{{$comment->author}}</td>
                     <td>{{$comment->email}}</td>
                     <td>{{$comment->body}}</td>
-                    <td><a href="{{route('admin.comments.edit', $comment->post->id)}}">View Post</a></td>
+                    <td><a href="{{route('home.post', $comment->post_id)}}">View Post</a></td>
+                    <td>{!! Form::open(['method'=>'DELETE', 'action'=> ['PostCommentController@destroy', $comment->id]]) !!}
+                    {!! form::submit('delete comment', ['class'=>'btn btn-danger col-sm-6']) !!}</td>
                 </tr>
             @endforeach
             </tbody>

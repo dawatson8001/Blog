@@ -52,12 +52,7 @@ class PostCommentController extends Controller
 
         Comment::create($data);
 
-        $request->session()->flash('comment_message','Your message has been submitted');
-
-        return redirect()->back();
-
-
-
+        return redirect('admin.posts.create');
 
     }
 
@@ -113,7 +108,7 @@ class PostCommentController extends Controller
     {
         Comment::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return redirect('/admin/comments');
     }
 
 

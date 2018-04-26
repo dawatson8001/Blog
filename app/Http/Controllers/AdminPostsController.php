@@ -86,7 +86,7 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
 
-        Comment::findOrFail($id)->update($request->all());
+        Post::findOrFail($id)->update($request->all());
 
         return redirect('/admin/posts');
     }
@@ -99,7 +99,7 @@ class AdminPostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id)->delete();
+         Post::findOrFail($id)->delete();
 
         return redirect('/admin/posts');
 

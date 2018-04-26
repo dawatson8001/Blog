@@ -24,6 +24,6 @@ class Admin
 
             }
         }
-        return redirect('/');
+        return redirect('/posts');
     }
 }
